@@ -1,4 +1,4 @@
-package com.shinley;
+package com.shinley.contenter;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
