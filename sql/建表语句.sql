@@ -1,3 +1,6 @@
+CREATE DATABASE `content_center` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
+use content_center;
+
 create table if not exists `notice` (
     `id` int not null auto_increment primary key,
     `content` varchar(255) not null default '' comment '内容',
@@ -23,11 +26,20 @@ create table if not exists `share` (
     update_time datetime not null default current_timestamp on update current_timestamp comment '更新时间'
 );
 
+
+INSERT INTO content_center.share (id, user_id, title, is_original, author, cover, summary, price, buy_count, download_url, show_flag, audit_status, reson, create_time, update_time) VALUES (1, 1, 'spring cloud 与 Docker微服务实战', 0, '小目', 'xxx', '', 0, 1, '', 0, '', '', '2020-11-09 18:44:49', '2020-11-11 09:00:46');
+INSERT INTO content_center.share (id, user_id, title, is_original, author, cover, summary, price, buy_count, download_url, show_flag, audit_status, reson, create_time, update_time) VALUES (2, 1, 'Spring cloud alibaba小程序实战', 0, '中目', 'xxx', '', 0, 1, '', 0, '', '', '2020-11-09 18:47:07', '2020-11-11 09:00:46');
+INSERT INTO content_center.share (id, user_id, title, is_original, author, cover, summary, price, buy_count, download_url, show_flag, audit_status, reson, create_time, update_time) VALUES (3, 1, 'kubernetes实战', 0, '大目', 'xxx', '', 0, 1, '', 0, '', '', '2020-11-09 18:50:18', '2020-11-11 09:00:33');
+
+
 create table if not exists `mid_user_share` (
     id int not null auto_increment primary key ,
     share_id int not null default 0,
     user_id int not null default 0
 ) comment '用户-分享中间表[描述用户购买的分享]';
+
+CREATE DATABASE `user_center` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */ ;
+use user_center;
 
 create table `user` (
     id int not null auto_increment primary key ,
@@ -39,6 +51,9 @@ create table `user` (
     create_time datetime not null default current_timestamp comment '创建时间',
     update_time datetime not null default current_timestamp on update current_timestamp comment '修改时间'
 );
+
+INSERT INTO user_center.user (id, wx_id, wx_nickname, roles, avatr_url, bonus, create_time, update_time) VALUES (1, 'sfaasf', '大目', 'admin', 'xxx', 100, '2020-11-09 18:23:56', '2020-11-10 09:18:27');
+INSERT INTO user_center.user (id, wx_id, wx_nickname, roles, avatr_url, bonus, create_time, update_time) VALUES (2, 'ffdasf', '大目他爸', 'user', 'xxx', 0, '2020-11-10 09:13:57', '2020-11-10 09:18:27');
 
 create table bonus_event_log (
     id int not null auto_increment primary key,
