@@ -2,10 +2,6 @@ server:
   port: 8081
 
 spring:
-  application:
-    name: user-center
-  profiles:
-    active: dev
   datasource:
     url: jdbc:mysql://localhost:3306/user_center?characterEncoding=utf8
     hikari:
@@ -13,7 +9,6 @@ spring:
       password: 123456
       driver-class-name: com.mysql.cj.jdbc.Driver
   cloud:
-    nacos:
       discovery:
         server-addr: localhost:8848
         namespace: ${spring.profiles.active}
