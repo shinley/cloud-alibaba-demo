@@ -22,15 +22,15 @@
         </jdbcConnection>
 
         <!--实体-->
-        <javaModelGenerator targetPackage="com.shinley.contenter.domain.entity.${moduleName}"
+        <javaModelGenerator targetPackage="com.shinley.contentcentter.domain.entity.${moduleName}"
                             targetProject="src/main/java"/>
 
         <!--mapper.xml-->
-        <sqlMapGenerator targetPackage="com.shinley.contenter.dao.${moduleName}"
+        <sqlMapGenerator targetPackage="com.shinley.contentcentter.dao.${moduleName}"
                          targetProject="src/main/resources"/>
 
         <!--mapper接口-->
-        <javaClientGenerator targetPackage="com.shinley.contenter.dao.${moduleName}"
+        <javaClientGenerator targetPackage="com.shinley.contentcentter.dao.${moduleName}"
                              targetProject="src/main/java"
                              type="XMLMAPPER"/>
 

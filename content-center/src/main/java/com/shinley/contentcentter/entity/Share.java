@@ -1,4 +1,4 @@
-package com.shinley.contenter.entity;
+package com.shinley.contentcentter.entity;
 
 import java.util.Date;
 import javax.persistence.*;

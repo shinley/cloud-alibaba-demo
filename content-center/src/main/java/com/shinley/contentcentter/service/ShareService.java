@@ -1,8 +1,12 @@
-package com.shinley.contenter.service;
+package com.shinley.contentcentter.service;
 
-import com.shinley.contenter.dao.ShareMapper;
-import com.shinley.contenter.entity.Share;
+import com.shinley.contentcentter.dao.ShareMapper;
+import com.shinley.contentcentter.dto.ShareDto;
+import com.shinley.contentcentter.dto.UserDto;
+import com.shinley.contentcentter.entity.Share;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -11,18 +15,25 @@ public class ShareService {
     @Autowired
     private ShareMapper shareMapper;
 
-    public Share findById(Integer id) {
+    @Autowired
+    private RestTemplate restTemplate;
+
+    public ShareDto findById(Integer id) {
         // 获取分享详情
         Share share = this.shareMapper.selectByPrimaryKey(id);
         // 发布人id
         Integer userId = share.getUserId();
-        RestTemplate restTemplate = new RestTemplate();
-        String forObject = restTemplate.getForObject(
+
+        UserDto userDto = restTemplate.getForObject(
                 "http://localhost:8081/users/{id}",
-                String.class,
-                1
+                UserDto.class,
+                userId
         );
-        return null;
+        // 消息的装配
+        ShareDto shareDto = new ShareDto();
+        BeanUtils.copyProperties(share, shareDto);
+        shareDto.setWxNickname(userDto.getWxNickname());
+        return shareDto;
     }
 
     public static void main(String[] args) {

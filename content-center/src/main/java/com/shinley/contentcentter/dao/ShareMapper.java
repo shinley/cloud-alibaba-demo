@@ -1,6 +1,6 @@
-package com.shinley.contenter.dao;
+package com.shinley.contentcentter.dao;
 
-import com.shinley.contenter.entity.Share;
+import com.shinley.contentcentter.entity.Share;
 import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.Mapper;
 
