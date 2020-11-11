@@ -8,7 +8,4 @@ spring:
       username: root
       password: 123456
       driver-class-name: com.mysql.cj.jdbc.Driver
-  cloud:
-      discovery:
-        server-addr: localhost:8848
-        namespace: ${spring.profiles.active}
+
