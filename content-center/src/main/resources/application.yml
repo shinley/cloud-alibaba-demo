@@ -17,3 +17,11 @@ spring:
       discovery:
         server-addr: localhost:8848
         namespace: ${spring.profiles.active}
+    sentinel:
+      transport:
+        dashboard: localhost:8858
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
