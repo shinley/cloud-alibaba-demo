@@ -10,6 +10,7 @@ spring:
       transport:
         dashboard: localhost:8858
       enabled: true
+      eager: true
     gateway:
       discovery:
         locator:
